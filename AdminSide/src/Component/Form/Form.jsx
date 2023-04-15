@@ -14,79 +14,78 @@ const Form = ({editd}) => {
    const {categries,loading}=useSelector((store)=>store.categries)
    const [isloading, setLoading] = useState(false);
    const [url, setUrl] = useState(null);
-
    const toast=useToast()
 
-
-   useEffect(()=>{
-     dispatch(getcategeryAsync(categry))
-       
-   },[categry])
+                                          // get categries brom backend    
+                        useEffect(()=>{
+                          dispatch(getcategeryAsync(categry))  
+                        },[categry])
+                      
  
- 
- 
-   const handleChagery=(e)=>{
-     setCategry(e.target.value)
-   }
+                                        //   chenging the sealect tag and  storing  store the defrent categery
+                        const handleChagery=(e)=>{
+                                       setCategry(e.target.value)
+                        }
 
-    const handlechenge = (e) => {
-        const { name, value } = e.target;
-        setCred({
-          ...cred,
-          [name]: value,
-        });
-        console.log(amout)
-   };
-
-
-   function uploadSingleImage(base64) {
-    setLoading(true);
-    axios.post("https://nice-teal-grasshopper-hose.cyclic.app/uploadImg", { image: base64 })
-      .then((res) => {
-        setUrl(res.data);
-        setLoading(false);
-       
-        setCred({...cred,productImages:res.data,categorySlug:categry,id:Math.floor(Math.random()*1000)*1000})
-      
-      })
-      .then(() => setLoading(false))
-      .catch(console.log);
-  }
+                                  // form   value are storing in object withh key  as  name 
+                      const handlechenge = (e) => {
+                          const { name, value } = e.target;
+                          setCred({
+                            ...cred,
+                            [name]: value,
+                          });
+                          console.log(amout)
+                    };
 
 
+                       //upload  converted base64 format string in to cloudnery 
+                    
+                        function uploadSingleImage(base64) {
+                          setLoading(true);
+                          axios.post("https://nice-teal-grasshopper-hose.cyclic.app/uploadImg", { image: base64 })
+                            .then((res) => {
+                              setUrl(res.data);
+                              setLoading(false);
+                                     // store the responded  url as my image in to mongo db backend so am passing this  
+                              setCred({...cred,productImages:res.data,categorySlug:categry,id:Math.floor(Math.random()*1000)*1000})
+                            
+                            })
+                            .then(() => setLoading(false))
+                            .catch(console.log);
+                        }
 
-  const handleFileUpload = async (e) => {
 
-    const files = e.target.files;
-    console.log(files.length);
+                          // this is the function get triger when  am uploading an image it will be in binery format 
+                          // and we passing tha  tnto covert base64 string format and uploading that
+                          const handleFileUpload = async (e) => {
 
-    if (files.length === 1) {
-    const file = e.target.files[0];
-    const base64 = await convertToBase64(file);
-   
-    uploadSingleImage(base64);
-    }
-  }
+                            const files = e.target.files;
+                            console.log(files.length);
+
+                            if (files.length === 1) {
+                            const file = e.target.files[0];
+                            const base64 = await convertToBase64(file);
+                          
+                            uploadSingleImage(base64);
+                            }
+                          }
 
 
 
   
   const handleForm=(e)=>{
-    e.preventDefault()
-   
-    
-        dispatch(UpdateproductAsync({id:editd,cred}))
-        dispatch(UpdateItem({id:editd,cred}))
-            toast({
-            title: 'Success',
-            description: "new item added sucessfully",
-            status: 'success',
-            duration: 4000,
-            isClosable: true,
-        })
-
-    
-   }
+                  //passing this into outr backend using redux 
+                    e.preventDefault()
+                        dispatch(UpdateproductAsync({id:editd,cred}))
+                        dispatch(UpdateItem({id:editd,cred}))
+                            toast({
+                            title: 'Success',
+                            description: "new item added sucessfully",
+                            status: 'success',
+                            duration: 4000,
+                            isClosable: true,
+                        })    
+                  }
 
 
   return (<>
@@ -123,18 +122,18 @@ const Form = ({editd}) => {
 
     </>)}
 
-
-function convertToBase64(file){
-    return new Promise((resolve, reject) => {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
-      fileReader.onload = () => {
-        resolve(fileReader.result)
-      };
-      fileReader.onerror = (error) => {
-        reject(error)
-      }
-    })
-  }
+                                  // converting banery into base64 
+                      function convertToBase64(file){
+                          return new Promise((resolve, reject) => {
+                            const fileReader = new FileReader();
+                            fileReader.readAsDataURL(file);
+                            fileReader.onload = () => {
+                              resolve(fileReader.result)
+                            };
+                            fileReader.onerror = (error) => {
+                              reject(error)
+                            }
+                          })
+                        }
 
 export default Form
