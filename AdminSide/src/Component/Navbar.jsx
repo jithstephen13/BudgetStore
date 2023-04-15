@@ -12,19 +12,14 @@ import { Link, useNavigate } from 'react-router-dom'
       Image,
       useBreakpointValue,
     } from '@chakra-ui/react'
-    import { FiMenu } from 'react-icons/fi'
+import { FiMenu } from 'react-icons/fi'
 import { removeItem } from '../utility/localStorage'
  
     
 export const Navbar = () => {
-  const navigate=useNavigate() 
-  
-  const isDesktop = useBreakpointValue({ base: false, lg: true })
+              const navigate=useNavigate() 
+               const isDesktop = useBreakpointValue({ base: false, lg: true })
   return (
-   
-  
-     
-   
         <Box as="section" >
           <Box as="nav" bg="bg-surface" boxShadow="sm">
             <Container py={{ base: '4', lg: '5' }}>

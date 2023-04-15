@@ -77,42 +77,35 @@ export const AddProduct = () => {
     console.log(files.length);
 
     if (files.length === 1) {
-    const file = e.target.files[0];
-    const base64 = await convertToBase64(file);
+                    const file = e.target.files[0];
+                    const base64 = await convertToBase64(file);
    
-    uploadSingleImage(base64);
-    }
-  }
+                     uploadSingleImage(base64); }}
 
-  const handleForm=(e)=>{
-   e.preventDefault()
+                          const handleForm=(e)=>{
+                          e.preventDefault()
 
-   try {
-    
-       dispatch(PostproductAsync(cred))
-   toast({
-    title: 'Success',
-    description: "new item added sucessfully",
-    status: 'success',
-    duration: 4000,
-    isClosable: true,
-  })
-    
-  window.location.reload(false)
-   } catch (error) {
-    
-    toast({
-      title: 'Error ',
-    
-      status: 'error',
-      duration: 4000,
-      isClosable: true,
-    })
-   }
-   
-  
-   
-  }
+                          try {
+                              dispatch(PostproductAsync(cred))
+                                        toast({
+                                          title: 'Success',
+                                          description: "new item added sucessfully",
+                                          status: 'success',
+                                          duration: 4000,
+                                          isClosable: true,
+                                        })
+                            
+                                         window.location.reload(false)
+                          } catch (error) {
+                            
+                                        toast({
+                                          title: 'Error ',
+                                        
+                                          status: 'error',
+                                          duration: 4000,
+                                          isClosable: true,
+                                        })
+                          } }
 
   return (<>
  
@@ -120,15 +113,11 @@ export const AddProduct = () => {
     <Stack bg={"blue.400"} alignItems={"center"}  style={{ backgroundImage:`url(https://res.cloudinary.com/dqgeth8jx/image/upload/v1680631886/BudgetApp/budget-store-website-favicon-color_jb6t16.png)`}}>
       <h1>Add New Product</h1>
       <Flex w={"full"}>
-        <Stack w={"50%"} alignItems={"center"} justifyContent={"center"}
-          // bgGradient="linear(to-l, #7928CA, #FF0080)"
-           >
+        <Stack w={"50%"} alignItems={"center"} justifyContent={"center"}>
              <Image w={'50%'} h={'fit-content'} src='https://res.cloudinary.com/dqgeth8jx/image/upload/v1681324719/BudgetApp/download_bt4nbi.jpg' alt='' />
         </Stack>
 
-      <Stack w={{ base: '100%', md: '50%', lg: '50%'}} m={"auto"}
-
-         p={6}>
+      <Stack w={{ base: '100%', md: '50%', lg: '50%'}} m={"auto"} p={6}>
 
 
                           <form ref={formref} action="" style={{display:"flex",flexDirection:"column" ,justifyContent:"center",textAlign:"center",gap:"15px"}}>
@@ -162,19 +151,9 @@ export const AddProduct = () => {
                                     </Flex>
                                  
                                    <Button onClick={handleForm}>click</Button>
-
                     </form>
-
-
-
-
-
         </Stack>
-
-
-      
       </Flex>
-
     </Stack>
    </>)
 }

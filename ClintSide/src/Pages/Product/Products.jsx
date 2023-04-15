@@ -61,9 +61,9 @@ const Products = () => {
           
          </SlideUp>}
 
-<div className="p-4   sticky top-6 w-full md:ml-10 transition delay-150 duration-300 ease-in-out "> 
-{loading && <Scleton/>}
-   <div className=" grid grid-cols-1  md:grid-cols-2 gap-4  pl-4">
+                  <div className="p-4   sticky top-6 w-full md:ml-10 transition delay-150 duration-300 ease-in-out "> 
+                  {loading && <Scleton/>}
+                     <div className=" grid grid-cols-1  md:grid-cols-2 gap-4  pl-4">
       
                {/* product Section */}
               
@@ -75,10 +75,9 @@ const Products = () => {
                })}
 
 
-   </div>
-</div>
-</div>
-</> )
-}
+                  </div>
+                </div>
+               </div>
+               </> )}
 
 export default Products

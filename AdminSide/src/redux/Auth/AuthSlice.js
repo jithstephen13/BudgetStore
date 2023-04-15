@@ -15,9 +15,7 @@ export const LoginUserAsync=createAsyncThunk('Auth/Login',async(cred,thunkAPI)=>
     
         setItem("Admin",resp.data)
         return resp.data;
-      } catch (error) {
-       
-        
+      } catch (error) {  
         return thunkAPI.rejectWithValue('something went wrong');
       }
 })

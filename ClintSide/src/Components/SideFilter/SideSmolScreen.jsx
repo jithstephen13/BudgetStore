@@ -50,33 +50,30 @@ const SideFilterBarSmall = () => {
 
 
 
-      <hr />
-<p>category</p>
+               <hr />
+              <p>category</p>
+              <hr/>
+                                <div className="p-2">
 
-<hr />
-      <div className="p-2">
-
-<div className="block px-4 py-2 text-sm text-left text-gray-500 rounded-lg  hover:bg-gray-50 hover:text-gray-700 hover:cursor-pointer"
- onClick={()=>{ dispatch(getcategeryAsync("Aplinces"))     
-  navigate("/Aplinces")}} >
-<p>Applincess</p>
-</div>
-<div className="block px-4 py-2 text-sm text-left text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-700 hover:cursor-pointer"  
-onClick={()=>{dispatch(getcategeryAsync("furnitur")) 
-navigate("/furnitur")}} >
-<p>Furniture</p>
-</div>
-<div className="block px-4 py-2 text-sm text-left text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-700 hover:cursor-pointer" 
-onClick={()=>{dispatch(getcategeryAsync("Packeges")) 
-navigate("/Packeges")}} >
-<p>Packeges</p>
-</div>
+                          <div className="block px-4 py-2 text-sm text-left text-gray-500 rounded-lg  hover:bg-gray-50 hover:text-gray-700 hover:cursor-pointer"
+                          onClick={()=>{ dispatch(getcategeryAsync("Aplinces"))     
+                            navigate("/Aplinces")}} >
+                          <p>Applincess</p>
+                          </div>
+                          <div className="block px-4 py-2 text-sm text-left text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-700 hover:cursor-pointer"  
+                          onClick={()=>{dispatch(getcategeryAsync("furnitur")) 
+                          navigate("/furnitur")}} >
+                          <p>Furniture</p>
+                          </div>
+                          <div className="block px-4 py-2 text-sm text-left text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-700 hover:cursor-pointer" 
+                          onClick={()=>{dispatch(getcategeryAsync("Packeges")) 
+                          navigate("/Packeges")}} >
+                          <p>Packeges</p>
+                          </div>
 
 
-</div>
-      
-  </div>
-)
-}
+                          </div>
+                                
+                            </div>)}
 
 export default SideFilterBarSmall

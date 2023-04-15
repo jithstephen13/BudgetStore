@@ -87,19 +87,7 @@ export const productSlice=createSlice({
                      }           ;
         }  
 
-        // [UpdateproductAsync.fulfilled]: (state, action) => {
-        //     const {_id, ...rest}=action.payload
-        //     state.loading = false;
-        //     state.products ={ ...state.products,
-        //         products:state.products.products.map((item)=>{
-        //                if(item._id==_id){
-        //                 item=rest
-        //                }
-        //                return item
-        //         })
-        //      }           ;
-        //     state.error = false;
-		// },
+       
        
      },
 
