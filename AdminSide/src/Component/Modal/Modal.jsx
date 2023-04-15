@@ -11,37 +11,33 @@ import {
   } from '@chakra-ui/react'
 import { AddProduct } from '../../Pages/Product/AddProduct'
 import Form from '../Form/Form'
-
+                                        //  Modal Pop up component 
 const ModalContainer = ({ isOpen, onClose,item} ) => {
-
-      
 
     const [edit,setEdit]=useState(null)
     
-   
-    return (
-      <>
-        
-  
-        <Modal isOpen={isOpen} onClose={onClose}>
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Modal Title</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>    
-                   <Form  editd={item} />
-            </ModalBody>
-  
-            <ModalFooter>
-              <Button colorScheme='blue'  onClick={onClose}>
-                Close
-              </Button>
-              <Button variant='ghost'>Secondary Action</Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal>
-      </>
-    )
-}
+            return (
+                    <>
+                      <Modal isOpen={isOpen} onClose={onClose}>
+                        <ModalOverlay />
+                        <ModalContent>
+                          <ModalHeader>Modal Title</ModalHeader>
+                          <ModalCloseButton />
+                          <ModalBody>    
+                                       {/* passing the children on heare   */}
+                                <Form  editd={item} />
+                          </ModalBody>
+                
+                          <ModalFooter>
+                            <Button colorScheme='blue'  onClick={onClose}>
+                              Close
+                            </Button>
+                            <Button variant='ghost'>Secondary Action</Button>
+                          </ModalFooter>
+                        </ModalContent>
+                      </Modal>
+                    </>
+                  )
+              }
 
-export default ModalContainer
+              export default ModalContainer

@@ -17,16 +17,12 @@ const Product = () => {
     const [editid,setEdit]=useState(null)
 
    useEffect(()=>{
-  
        dispatch(getcategeryAsync(categry))
        console.log(categry)
        setTimeout(() => {
                dispatch(getproductAsync({categry,filterSlu}))
        }, 2000);
-
-       
-         
-     },[categry,filterSlu])
+              },[categry,filterSlu])
 
    
      const handleChagery=(e)=>{
@@ -36,12 +32,9 @@ const Product = () => {
      const handleClick=(id)=>{
         dispatch(DeletproductAsync(id))
         dispatch(removeItem(id))
-        
-     }
+       }
   return (<>
-
-
-    <Stack w={'full'}  style={{ backgroundImage:`url(https://res.cloudinary.com/dqgeth8jx/image/upload/v1680631886/BudgetApp/budget-store-website-favicon-color_jb6t16.png)`}}>
+                         <Stack w={'full'}  style={{ backgroundImage:`url(https://res.cloudinary.com/dqgeth8jx/image/upload/v1680631886/BudgetApp/budget-store-website-favicon-color_jb6t16.png)`}}>
                            <Flex>                
                                                                               {/* catagery filter */}
                                   <Select name='categorySlug' onChange={handleChagery} bg={"gold"} zIndex={"auto"}>
@@ -61,12 +54,12 @@ const Product = () => {
 
                                  
     
-<Grid  templateColumns={['repeat(1, 1fr)','repeat(2, 1fr)','repeat(3, 1fr)','repeat(4, 1fr)']} gap={6}>
-      
-                {products.products&&products.products.length>=1&&products.products.map((item,idx)=>{
-  
-                       return     <Flex key={idx} flexDirection={"column"} bg={"white"} maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' textAlign={'center'} boxShadow='dark-lg'>
-                                                {item.productImages[0]+item.productImages[1]==="ht"? <Image   src={item.productImages}/>:<Image    src={`https:${item.productImages}-250x250.jpg`}/>}
+                                                                              <Grid  templateColumns={['repeat(1, 1fr)','repeat(2, 1fr)','repeat(3, 1fr)','repeat(4, 1fr)']} gap={6}>
+                                    
+                                              {products.products&&products.products.length>=1&&products.products.map((item,idx)=>{
+                                                                                                                //  product Card
+                                                    return     <Flex key={idx} flexDirection={"column"} bg={"white"} maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' textAlign={'center'} boxShadow='dark-lg'>
+                                                                              {item.productImages[0]+item.productImages[1]==="ht"? <Image   src={item.productImages}/>:<Image    src={`https:${item.productImages}-250x250.jpg`}/>}
 
                                                                                 <Box p='6'>
                                                                                   <Box display='flex' alignItems='baseline'>
@@ -124,10 +117,10 @@ const Product = () => {
                                                                 </Box>
                                                         </Flex> 
         
-                                                   }) }           </Grid>  
+                                                   }) }</Grid>  
                 
           
- </Stack>
- </> )}
+                                            </Stack>
+                                            </> )}
 
 export default Product

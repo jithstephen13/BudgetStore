@@ -13,10 +13,9 @@ export default function Home() {
   const navigate=useNavigate()
   return (
     <>
+                  {/* Home page loading Page */}
     <TransitionEfect/>
-    <div >
-
-    </div>
+                   {/* Home Page with loading  */}
     <Flex
       w={'full'}
       h={'100vh'} 

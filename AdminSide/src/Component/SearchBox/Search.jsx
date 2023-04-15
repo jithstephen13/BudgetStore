@@ -11,11 +11,10 @@ const SearchBox = () => {
     dispatch(getproductAsyncSearch(text))
     setText("")
  }  
-
+                  // search component that can search realeted Productes
   return ( <Flex>
     <Input bg={"cornsilk"}  value={text} onChange={(e)=>setText(e.target.value)} />
      <Button onClick={handleSearch}> Search</Button>
- </Flex>)
-}
+        </Flex>)}
 
 export default SearchBox

@@ -14,58 +14,44 @@ const Login = ({logIn,setLog,showModal, setShowModal}) => {
   
     
     const pathname = location.pathname ? location.pathname : null;
-  
-
-    const {user,
-       loading,
-       error,
-       Signed}=useSelector((store)=>store.auth)
+    const {user, loading,error,Signed}=useSelector((store)=>store.auth)
 
       
       
    
     const HandleChange=(e)=>{
-       const { name, value } = e.target;
-       setCread({
-         ...cred,
-         [name]: value,
-       });
-       
-   
-    }
+                      const { name, value } = e.target;
+                      setCread({
+                        ...cred,
+                        [name]: value,
+                      });
+                    }
    
    
     const HandleSubmit=(e)=>{
-       e.preventDefault()
-          console.log(cred)
-          dispatch(LoginUserAsync(cred))
-          setTimeout(()=>{
-            if(getItem("Admin")){
-                navigate("/")
-            }
-          
-          
-          },1500)
-          
+                        e.preventDefault()
+                            console.log(cred)
+                            dispatch(LoginUserAsync(cred))
+             setTimeout(()=>{
+                              if(getItem("Admin")){
+                                  navigate("/") }},1500)
+                     }
 
-    }
+                      return (
+                                <Flex justify={"center"} >
+                                <form  style={{width:"60%"}} onSubmit={HandleSubmit}>
+                                        <div className="mb-6">
+                                                  <label  >Your email</label>
+                                                  <Input type="email" id="email" name='email' onChange={HandleChange}  placeholder="name@flowbite.com" required/>
+                                        </div>
+                                        <div className="mb-6">
+                                                  <label >Your password</label>
+                                                  <Input type="password" id="password" name='password'  onChange={HandleChange}   required/>
+                                        </div>
+                                        
+                                        <Button type="submit" w={"full"}  mt={5}>{loading? <Spinner/> :"Log In"}</Button>
+                                      
+                              </form></Flex>)}
 
-  return (
-    <Flex justify={"center"} >
-    <form  style={{width:"60%"}} onSubmit={HandleSubmit}>
-    <div className="mb-6">
-      <label  >Your email</label>
-      <Input type="email" id="email" name='email' onChange={HandleChange}  placeholder="name@flowbite.com" required/>
-    </div>
-    <div className="mb-6">
-      <label >Your password</label>
-      <Input type="password" id="password" name='password'  onChange={HandleChange}   required/>
-    </div>
-    
-    <Button type="submit" w={"full"}  mt={5}>{loading? <Spinner/> :"Log In"}</Button>
-   
-  </form></Flex>
-  )
-}
-
-export default Login
+             
+             export default Login
