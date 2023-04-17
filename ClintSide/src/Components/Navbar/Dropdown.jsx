@@ -6,9 +6,11 @@ import { useDispatch } from "react-redux";
 import { logOut } from "../../redux/Auth/AuthSlice";
 import CartModal from "./CartModal";
 import { getCartAsync } from "../../redux/cart/Cartslice";
+import { useNavigate } from "react-router-dom";
 
 export default function DropdownComponent() {
   const [visivility, setvisib]=useState(false)
+  const navigate=useNavigate()
 
   const [drowr,setDrowr]=useState(false)
   const dispatch =useDispatch()
@@ -47,12 +49,22 @@ export default function DropdownComponent() {
                         >
                             User Details
                         </a>
+                        <div
+                            onClick={()=>{navigate('/OrderDetaile')}}
+
+                            className="block px-4 py-2 text-sm text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-700"
+                        >
+                          Order Detailes
+                        </div>
                         <a
                             href="https://budgetstoreadmin.netlify.app/"
                             className="block px-4 py-2 text-sm text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-700"
                         target="_blank">
                            Admin Page
                         </a>
+
+                      
+                        
                         <div
                             onClick={()=>{
                                 removeItem("User")

@@ -5,9 +5,10 @@ import thunk from 'redux-thunk';
 
 import CategryReducer from "./catagery/CategrySlice"
 import productReducer from "./Product/productSlice"
-
 import AuthReducer from "./Auth/AuthSlice"
 import CartsReducer from "./cart/Cartslice"
+import OrderReducer from './Order/Orderslice'
+
 
 
 const persistConfig = {
@@ -20,7 +21,9 @@ const reducer =combineReducers({
    categries:CategryReducer,
     products:productReducer,
     auth:AuthReducer,
-    cart:CartsReducer
+    cart:CartsReducer,
+    Order:OrderReducer
+    
 })
 const persistReducr=persistReducer(persistConfig,reducer)
 

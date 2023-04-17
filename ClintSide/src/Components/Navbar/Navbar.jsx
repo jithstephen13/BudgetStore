@@ -16,22 +16,26 @@ const NAV_ITEMS= [
     {
       label: "Home",
       page: "home",
-    },]
+    },
+   
+  
+   
+]
 
 const Navbar = () => {
+  
     const [navbar, setNavbar] = useState(false)
     const navigate=useNavigate()
     const {user, loading, error, Signed}=useSelector((store)=>store.auth)
     const dispatch =useDispatch()
     useEffect(()=>{
-      dispatch(getCartAsync())},[])
+      dispatch(getCartAsync())
+   },[])
     
   
-          const handleResume=()=>{
-            window.location.href="https://drive.google.com/file/d/1RpHZgTgGbC4Y5xsCedBbqq_YIL-hFUYh/view?usp=sharing"
-          }
-
-
+    const handleResume=()=>{
+      window.location.href="https://drive.google.com/file/d/1RpHZgTgGbC4Y5xsCedBbqq_YIL-hFUYh/view?usp=sharing"
+    }
     return (
       <nav  className="w-full mx-auto py-0 px-4 sm:px-20 fixed  text-white top-0 left-0 z-50 shadow bg-black dark:bg-stone-900 dark:border-b 
                           dark:border-stone-600 ">
@@ -53,6 +57,9 @@ const Navbar = () => {
                             onClick={() => setNavbar(!navbar)}>
                             {navbar ? <IoMdClose size={30} /> : <IoMdMenu size={30} />}
                     </button>
+                        
+                    
+               
               </div>
             </div>
           </div>
@@ -72,7 +79,10 @@ const Navbar = () => {
                       className={
                         "block lg:inline-block text-white  hover:text-neutral-500 dark:text-neutral-100 cursor-pointer"
                       }
-                       onClick={() => navigate("/")} >
+                    
+                     
+                      onClick={() => navigate("/")}
+                    >
                       {item.label}
                     </a>
                   )
@@ -85,11 +95,13 @@ const Navbar = () => {
              
                
                {user &&user.token ? <DropdownComponent /> : <LoginSignModal/>}
-                <div className={` ${
+               
+  
+                 <div className={` ${
                       navbar ? "hidden" : "flex"} justify-center items-center  mt-8 md:block md:pb-0 md:mt-0`}>
                 
                   
-                               {/* <Switcher /> */}
+                         {/* <Switcher /> */}
                      
                  </div>
               </div>
@@ -102,6 +114,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-  )}
+  )
+}
 
 export default Navbar
