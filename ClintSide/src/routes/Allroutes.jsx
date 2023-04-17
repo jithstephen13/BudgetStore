@@ -5,6 +5,7 @@ import Applinces from '../Pages/Product/Products'
 import Success from '../Pages/Success'
 import Error from '../Pages/Error'
 import SingleProduct from '../Pages/SingleProduct'
+import Order from '../Pages/Order'
 
 const Allroutes = () => {
   return (
@@ -14,6 +15,7 @@ const Allroutes = () => {
       <Route path='/checkout-success' element={<Success/>}/>
       <Route path='/error' element={<Error/>}/>
       <Route path='/singleProduct/:id' element={<SingleProduct/>}/>
+      <Route path='/OrderDetaile' element={<Order/>}/>
     </Routes>
   )
 }
